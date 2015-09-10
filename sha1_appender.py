@@ -64,18 +64,6 @@ def sha1(msg):
 def get_hex(s):
     return '%08x%08x%08x%08x%08x' % s
 
-def append_display(known_text, append, hash, secret_size=1):
-    res = tuple([int("0x" + hash[i:i+8], 16) for i in range(0, len(hash), 8)])
-    print "********************"
-    print "* String to inject *"
-    print "********************"
-    payload = (padding(known_text, len(known_text) + secret_size) + append).encode("hex")
-    print '\\x' + '\\x'.join([payload[i:i+2] for i in range(0, len(payload), 2)])
-    print "\n********************"
-    print "*  Predicted SHA1  *"
-    print "********************"
-    print get_hex(sha1_custom(padding(append, 64 + len(append)), res[0], res[1], res[2], res[3], res[4]))
-
 def sha1_append(known_text, append, hash, secret_size, text_format="str"):
     if text_format == "hex":
         known_text = known_text.decode("hex")
