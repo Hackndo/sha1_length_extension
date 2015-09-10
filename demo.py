@@ -1,12 +1,12 @@
-import sha1_appender
+import sha1_extender
 
 print "=> Original sha1"
-print sha1_appender.sha1("MySecret!" + "hackndo is amazing")
+print sha1_extender.sha1("MySecret!" + "hackndo is amazing")
 # => Original sha1
 # c187bbe5056dc6602091040b694fffd27e4af1b5
 
 print "\n=> The magic"
-result = sha1_appender.sha1_append("hackndo is amazing", " and smart", "c187bbe5056dc6602091040b694fffd27e4af1b5", 9)
+result = sha1_extender.sha1_append("hackndo is amazing", " and smart", "c187bbe5056dc6602091040b694fffd27e4af1b5", 9)
 print result["injection"]
 print result["sha1"]
 # => The magic
@@ -14,6 +14,6 @@ print result["sha1"]
 # 8288af4b63cd05aa7d7b9d8ea553a1d0d08e2b10
 
 print "\n=> Check if predicted is correct"
-print sha1_appender.sha1("MySecret!" + "\x68\x61\x63\x6b\x6e\x64\x6f\x20\x69\x73\x20\x61\x6d\x61\x7a\x69\x6e\x67\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd8\x20\x61\x6e\x64\x20\x73\x6d\x61\x72\x74")
+print sha1_extender.sha1("MySecret!" + "\x68\x61\x63\x6b\x6e\x64\x6f\x20\x69\x73\x20\x61\x6d\x61\x7a\x69\x6e\x67\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd8\x20\x61\x6e\x64\x20\x73\x6d\x61\x72\x74")
 # => Check if predicted correct
 # 8288af4b63cd05aa7d7b9d8ea553a1d0d08e2b10
