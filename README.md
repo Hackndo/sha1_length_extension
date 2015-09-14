@@ -3,7 +3,7 @@
 Description
 ===========
 
-Python implementation of **sha1** and **sha1 hash length extension**
+Python implementation of **sha1** and **sha1 hash length extension** for [french tutorial on my blog](http://blog.hackndo.com/hash-length-extension/)
 
 How to use
 ==========
