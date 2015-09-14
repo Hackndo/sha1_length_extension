@@ -9,7 +9,8 @@ def rotate_left(num, bits):
 
 def padding(msg, size):
     size *= 8
-    padding = 64*8 - ((size + 8) % 512) - 64 # +8 because \x80 and -64 because size on 64 bits
+    padding = (64*8 - ((size + 8) % 512) - 64)%(64*8) # +8 because \x80 and -64 because size on 64 bits
+
 
     msg += "\x80"
 
